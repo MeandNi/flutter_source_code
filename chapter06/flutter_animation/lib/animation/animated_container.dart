@@ -12,7 +12,7 @@ class _AnimationSampleState extends State<AnimationSample>
   Animation<double> curveAnimation;
   Animatable animatable;
   Animation<Color> tweenAnimation;
-  Tween<Color> tween =  Tween<Color>(begin: Colors.red, end: Colors.blue);
+  ColorTween tween;
 
   @override
   void initState() {
@@ -30,6 +30,7 @@ class _AnimationSampleState extends State<AnimationSample>
       curve: Curves.easeOut,
       reverseCurve: Curves.easeInOut,
     );
+    tween =  ColorTween(begin: Colors.red, end: Colors.blue);
     tweenAnimation = tween.animate(_controller);
   }
 
