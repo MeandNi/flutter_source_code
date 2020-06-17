@@ -78,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Layout 样例"),
+        title: Text("Widget 样例"),
       ),
       body: ListView.builder(
           itemCount: ITEMS.length,
