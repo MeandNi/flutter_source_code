@@ -1,0 +1,30 @@
+name: flutter_widget
+description: A new Flutter application.
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^0.1.2
+  google_fonts: ^0.3.7
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - images/flutter.jpg
+  fonts:
+    - family: Lobster
+      fonts:
+        - asset: fonts/Lobster-Regular.ttf
+    - family: DancingScript
+      fonts:
+        - asset: fonts/DancingScript-Regular.ttf
+        - asset: fonts/DancingScript-Bold.ttf
+          weight: 700
