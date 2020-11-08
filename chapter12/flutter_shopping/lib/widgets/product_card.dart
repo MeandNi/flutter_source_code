@@ -55,10 +55,11 @@ class ProductCard extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
                 maxLines: 1,
               ),
-              SizedBox(height: 4.0),
-              Text(
-                product == null ? '' : MoneyUtil.withPrefix(product.price),
-                style: theme.textTheme.caption,
+              Container(
+                child: Text(
+                  product == null ? '' : MoneyUtil.withPrefix(product.price),
+                  style: theme.textTheme.caption,
+                ),
               ),
             ],
           ),

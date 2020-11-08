@@ -46,7 +46,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                 decoration: const InputDecoration(
                   hintText: '请速入用户名',
                 ),
-                onSaved: (String val) => username = val,
+                onSaved: (value) => username = value,
                 validator: (value) {
                   if (value.isEmpty) {
                     return "用户名不能为空！";

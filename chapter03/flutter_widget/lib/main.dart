@@ -7,6 +7,7 @@ import 'package:flutter_widget/widgets/form/form_sample.dart';
 import 'package:flutter_widget/widgets/gridview/gridview_sample.dart';
 import 'package:flutter_widget/widgets/icon/icon_sample.dart';
 import 'package:flutter_widget/widgets/image/image_sample.dart';
+import 'package:flutter_widget/widgets/key/key_sample.dart';
 import 'package:flutter_widget/widgets/listview/listview_sample.dart';
 import 'package:flutter_widget/widgets/scaffold/appbar_sample.dart';
 import 'package:flutter_widget/widgets/scaffold/drawer_sample.dart';
@@ -30,7 +31,9 @@ const ITEMS = [
   {'title': 'GridView Sample', 'route': '/gridview'},
   {'title': 'Scaffold Sample', 'route': '/scaffold'},
   {'title': 'AppBar Sample', 'route': '/appbar'},
-  {'title': 'Drawer Sample', 'route': '/drawer'}
+  {'title': 'Drawer Sample', 'route': '/drawer'},
+  {'title': 'Key Sample', 'route': '/key'},
+  {'title': 'PageStorageKey Sample', 'route': '/pageStorageKey'}
 ];
 
 class MyApp extends StatelessWidget {
@@ -57,7 +60,9 @@ class MyApp extends StatelessWidget {
         '/gridview': (context) => GridViewSample(),
         '/scaffold': (context) => ScaffoldSample(),
         '/appbar': (context) => AppBarSample(),
-        '/drawer': (context) => DrawerSample()
+        '/drawer': (context) => DrawerSample(),
+        '/key': (context) => KeySample(),
+        '/pageStorageKey': (context) => PageStorageKeySample()
       },
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -93,38 +98,28 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 class ItemView extends StatelessWidget {
-
   final int index;
 
   const ItemView({Key key, this.index}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding:
-      const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
-      child: InkWell(
+    return Card(
+      elevation: 5.0,
+      child: ListTile(
         onTap: () {
-          Navigator.of(context)
-              .pushNamed('${ITEMS[index]['route']}');
+          Navigator.of(context).pushNamed('${ITEMS[index]['route']}');
         },
-        child: Card(
-          elevation: 5.0,
-          child: new Container(
-              color: Colors.white,
-              width: MediaQuery.of(context).size.width,
-              padding: EdgeInsets.all(16.0),
-              child: Row(
-                children: <Widget>[
-                  Text(
-                    ITEMS[index]['title'],
-                    style:
-                    TextStyle(color: Colors.black, fontSize: 20.0),
-                  ),
-                  Icon(Icons.keyboard_arrow_right)
-                ],
-              )),
+        title: Text(
+          ITEMS[index]['title'],
+          overflow: TextOverflow.ellipsis,
+          maxLines: 1,
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 20.0,
+          ),
         ),
+        trailing: Icon(Icons.keyboard_arrow_right),
       ),
     );
   }

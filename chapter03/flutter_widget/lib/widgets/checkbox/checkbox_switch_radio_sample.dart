@@ -1,10 +1,5 @@
 import 'package:flutter/cupertino.dart';
 
-///
-/// Created by NieBin on 2019/5/12
-/// Github: https://github.com/nb312
-/// Email: niebin312@gmail.com
-///
 import "package:flutter/material.dart";
 
 class CheckBoxSample extends StatefulWidget {

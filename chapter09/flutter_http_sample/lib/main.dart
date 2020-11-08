@@ -1,128 +1,93 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_http_sample/future_sample.dart';
+import 'package:flutter_http_sample/http_sample.dart';
 import 'package:flutter_http_sample/todo_list.dart';
-import 'package:http/http.dart' as http;
 
 void main() => runApp(MyApp());
+
+const ITEMS = [
+  {'title': 'Http Sample', 'route': '/http'},
+  {'title': 'Future Sample', 'route': '/future'},
+  {'title': 'Todo List', 'route': '/todolist'},
+];
 
 class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: TodoList(),
-    );
-  }
-}
-
-class HttpSample extends StatefulWidget {
-  @override
-  _HttpSampleState createState() => _HttpSampleState();
-}
-
-class _HttpSampleState extends State<HttpSample> {
-
-  Future<String> fetchData() async {
-    http.Response response = await http.get('https://meandni.com/');
-
-    if (response.statusCode == 200) {
-      return response.body.toString();
-    } else {
-      throw Exception('请求失败！');
-    }
-  }
-
-  Future<http.Response> postData(String data) {
-    return http.post(
-      'https://jsonplaceholder.typicode.com/albums',
-      headers: <String, String>{
-        'Content-Type': 'application/json; charset=UTF-8',
+      routes: {
+        '/http': (context) => HttpSample(),
+        '/future': (context) => FutureSample(),
+        '/todolist': (context) => TodoList(),
       },
-      body: data
+      home: MyHomePage(title: 'Flutter Animation'),
     );
   }
+}
 
+class MyHomePage extends StatefulWidget {
+  MyHomePage({Key key, this.title}) : super(key: key);
+
+  final String title;
+
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('HTTP SAMPLE'),
+        title: Text("网络请求样例"),
       ),
-      body: Center(
-        child: FutureBuilder<String>(
-          future: fetchData(),
-          builder: (context, snapshot) {
-
-            if (snapshot.hasError) {
-              return Text("${snapshot.error}");
-            }
-
-            if (snapshot.hasData) {
-              return Text(snapshot.data);
-            }
-            return CircularProgressIndicator();
-          },
-        ),
-      ),
+      body: ListView.builder(
+          itemCount: ITEMS.length,
+          shrinkWrap: true,
+          itemBuilder: (builder, index) {
+            return ItemView(
+              index: index,
+            );
+          }),
     );
   }
 }
 
-class FutureSample extends StatefulWidget {
-  @override
-  _FutureSampleState createState() => _FutureSampleState();
-}
+class ItemView extends StatelessWidget {
+  final int index;
 
-class _FutureSampleState extends State<FutureSample> {
-  Future<String> _calculation = Future<String>.delayed(
-  Duration(seconds: 2),
-  () => '完成啦！',
-  );
+  const ItemView({Key key, this.index}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<String>(
-      future: _calculation, // a previously-obtained Future<String> or null
-      builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
-        List<Widget> children;
-        if (snapshot.hasData) {
-          children = <Widget>[
-            Icon(
-              Icons.check_circle_outline,
-              color: Colors.green,
-              size: 60,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 16),
-              child: Text('数据: ${snapshot.data}'),
-            )
-          ];
-        } else {
-          children = <Widget>[
-            SizedBox(
-              child: CircularProgressIndicator(),
-              width: 60,
-              height: 60,
-            ),
-            const Padding(
-              padding: EdgeInsets.only(top: 16),
-              child: Text('等待异步事件完成...'),
-            )
-          ];
-        }
-        return Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: children,
+    return Card(
+      elevation: 5.0,
+      child: ListTile(
+        onTap: () {
+          Navigator.of(context).pushNamed('${ITEMS[index]['route']}');
+        },
+        title: Text(
+          ITEMS[index]['title'],
+          overflow: TextOverflow.ellipsis,
+          maxLines: 1,
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 20.0,
           ),
-        );
-      },
+        ),
+        trailing: Icon(Icons.keyboard_arrow_right),
+      ),
     );
   }
 }
+
+
+

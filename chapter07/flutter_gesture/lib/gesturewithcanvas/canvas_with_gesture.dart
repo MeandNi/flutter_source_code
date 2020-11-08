@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class DrawPiont {
+class DrawPoint {
   final Offset position;
   final Color color;
 
-  DrawPiont({@required this.position, this.color = Colors.black});
+  DrawPoint({@required this.position, this.color = Colors.black});
 }
 
 class CanvasWithGesture extends StatefulWidget {
@@ -13,7 +13,7 @@ class CanvasWithGesture extends StatefulWidget {
 }
 
 class _CanvasWithGestureState extends State<CanvasWithGesture> {
-  List<DrawPiont> _points = <DrawPiont>[];
+  List<DrawPoint> _points = <DrawPoint>[];
   Color painterColor = Colors.black;
 
   @override
@@ -27,7 +27,7 @@ class _CanvasWithGestureState extends State<CanvasWithGesture> {
             setState(() {
               Offset _localPosition = details.localPosition;
               _points = new List.from(_points)
-                ..add(new DrawPiont(
+                ..add(new DrawPoint(
                   position: _localPosition,
                   color: painterColor,
                 ));
@@ -107,7 +107,7 @@ class _CanvasWithGestureState extends State<CanvasWithGesture> {
 }
 
 class Drawer extends CustomPainter {
-  List<DrawPiont> points;
+  List<DrawPoint> points;
 
   Drawer({this.points});
 

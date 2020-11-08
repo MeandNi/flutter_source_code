@@ -21,7 +21,7 @@
   <img src="./chapter12/flutter_shopping_cart.png" width="260"/>
 </div>
 
-关注我的个人公众号「图书勘误、技术疑难、文章、教程」
+关注我的公众号「MeandNi」，及时关注**书后拓展，版本更新，图书勘误、技术疑难、文章、教程**。
 
-<img src="./qrcode.png"/>
+<img src="https://cdn.jsdelivr.net/gh/meandni/blogimg@main/img/2020-11-08-image-20201108180239281.png" width="300"/>
 

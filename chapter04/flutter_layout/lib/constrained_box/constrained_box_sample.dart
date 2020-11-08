@@ -7,15 +7,17 @@ class ConstrainedBoxSample extends StatelessWidget {
       appBar: AppBar(
         title: Text('ConstrainedBox'),
       ),
-      body: ConstrainedBox(
-        constraints: BoxConstraints(
-          minWidth: 50.0,
-          maxWidth: 150.0,
-          minHeight: 50.0,
-          maxHeight: 70.0,
-        ),
-        child: Container(
-          color: Colors.lightBlue,
+      body: Center(
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            minWidth: 50.0,
+            maxWidth: 150.0,
+            minHeight: 50.0,
+            maxHeight: 70.0,
+          ),
+          child: Container(
+            color: Colors.lightBlue,
+          ),
         ),
       ),
     );

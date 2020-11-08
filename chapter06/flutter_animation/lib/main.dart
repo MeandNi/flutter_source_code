@@ -64,38 +64,28 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 class ItemView extends StatelessWidget {
-
   final int index;
 
   const ItemView({Key key, this.index}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding:
-      const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
-      child: InkWell(
+    return Card(
+      elevation: 5.0,
+      child: ListTile(
         onTap: () {
-          Navigator.of(context)
-              .pushNamed('${ITEMS[index]['route']}');
+          Navigator.of(context).pushNamed('${ITEMS[index]['route']}');
         },
-        child: Card(
-          elevation: 5.0,
-          child: new Container(
-              color: Colors.white,
-              width: MediaQuery.of(context).size.width,
-              padding: EdgeInsets.all(16.0),
-              child: Row(
-                children: <Widget>[
-                  Text(
-                    ITEMS[index]['title'],
-                    style:
-                    TextStyle(color: Colors.black, fontSize: 20.0),
-                  ),
-                  Icon(Icons.keyboard_arrow_right)
-                ],
-              )),
+        title: Text(
+          ITEMS[index]['title'],
+          overflow: TextOverflow.ellipsis,
+          maxLines: 1,
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 20.0,
+          ),
         ),
+        trailing: Icon(Icons.keyboard_arrow_right),
       ),
     );
   }

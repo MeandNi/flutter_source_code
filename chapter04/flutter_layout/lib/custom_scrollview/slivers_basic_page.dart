@@ -7,21 +7,23 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
     @required this.maxHeight,
     @required this.child,
   });
+
   final double minHeight;
   final double maxHeight;
   final Widget child;
+
   @override
   double get minExtent => minHeight;
+
   @override
   double get maxExtent => math.max(maxHeight, minHeight);
+
   @override
   Widget build(
-      BuildContext context,
-      double shrinkOffset,
-      bool overlapsContent)
-  {
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
     return new SizedBox.expand(child: child);
   }
+
   @override
   bool shouldRebuild(_SliverAppBarDelegate oldDelegate) {
     return maxHeight != oldDelegate.maxHeight ||
@@ -79,16 +81,20 @@ class SliversBasicPage extends StatelessWidget {
 //            childCount: 9,
 //          ),
 //        ),
-        SliverPersistentHeader(
-          pinned: true,
-          delegate: _SliverAppBarDelegate(
-            minHeight: 100.0,
-            maxHeight: 200.0,
-            child: Container(
-                color: Colors.lightBlue, child: Center(child:
-            Text("SliverPersistentHeader", style: TextStyle(fontSize:20.0 ,color: Colors.white),))),
+          SliverPersistentHeader(
+            pinned: true,
+            delegate: _SliverAppBarDelegate(
+              minHeight: 100.0,
+              maxHeight: 200.0,
+              child: Container(
+                  color: Colors.lightBlue,
+                  child: Center(
+                      child: Text(
+                    "SliverPersistentHeader",
+                    style: TextStyle(fontSize: 20.0, color: Colors.white),
+                  ))),
+            ),
           ),
-        ),
 
           SliverFixedExtentList(
             itemExtent: 50,
@@ -114,30 +120,30 @@ class SliversBasicPage extends StatelessWidget {
 //            title: Text('Basic Slivers'),
 //          ),
 //        ),
-        SliverGrid(
-          delegate: SliverChildBuilderDelegate(
-            (context, index) {
-              return Container(
-                alignment: Alignment.center,
-                color: Colors.green[100 * (index % 9)],
+          SliverGrid(
+            delegate: SliverChildBuilderDelegate(
+              (context, index) {
+                return Container(
+                  alignment: Alignment.center,
+                  color: Colors.green[100 * (index % 9)],
 //                child: Text('grid item $index'),
-              );
-            },
-            childCount: 30,
-          ),
+                );
+              },
+              childCount: 30,
+            ),
 //           gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
 //             maxCrossAxisExtent: 200.0,
 //             mainAxisSpacing: 10.0,
 //             crossAxisSpacing: 10.0,
 //             childAspectRatio: 4.0,
 //           ),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3,
-            mainAxisSpacing: 15,
-            crossAxisSpacing: 15,
-            childAspectRatio: 2.0,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 3,
+              mainAxisSpacing: 15,
+              crossAxisSpacing: 15,
+              childAspectRatio: 2.0,
+            ),
           ),
-        ),
 
           SliverFixedExtentList(
             itemExtent: 50,
@@ -148,7 +154,8 @@ class SliversBasicPage extends StatelessWidget {
               Container(color: Colors.green),
               Container(color: Colors.blue),
             ]),
-          ),SliverFixedExtentList(
+          ),
+          SliverFixedExtentList(
             itemExtent: 50,
             delegate: SliverChildListDelegate([
               Container(color: Colors.blue),
@@ -157,7 +164,8 @@ class SliversBasicPage extends StatelessWidget {
               Container(color: Colors.green),
               Container(color: Colors.blue),
             ]),
-          ),SliverFixedExtentList(
+          ),
+          SliverFixedExtentList(
             itemExtent: 50,
             delegate: SliverChildListDelegate([
               Container(color: Colors.blue),
