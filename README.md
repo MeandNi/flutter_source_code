@@ -10,6 +10,8 @@
 
 **内容讨论：[issues](https://github.com/MeandNi/flutter_source_code/issues) / [epubit](https://www.epubit.com/bookDetails?id=UB7254663955be1)**
 
+**[书后拓展](https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzIzMjYyNzQ2Ng==&action=getalbum&album_id=1603577479208763394&scene=173&from_msgid=2247485767&from_itemidx=2&count=3#wechat_redirect)**
+
 源码示例：
 
 ![](https://cdn.jsdelivr.net/gh/meandni/blogimg@main/img/2020-12-11-bb53feaeb9da0cfe239fb213a066ed8e.png)
