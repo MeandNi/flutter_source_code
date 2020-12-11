@@ -1,4 +1,4 @@
-# 《Flutter 开发之旅从南到北》源码
+# flutter_source_code
 
 ![](https://cdn.jsdelivr.net/gh/meandni/blogimg@main/img/2020-12-11-Flutter%20%E5%BC%80%E5%8F%91%E4%B9%8B%E6%97%85%E4%BB%8E%E5%8D%97%E5%88%B0%E5%8C%971022-1.jpg)
 
@@ -22,4 +22,4 @@
 
 关注我的公众号「MeandNi」，关注**书后拓展，图书勘误等**。
 
-<img src="https://cdn.jsdelivr.net/gh/meandni/blogimg@main/img/2020-12-11-wxpublic.png" width="300"/>
+<img src="https://cdn.jsdelivr.net/gh/meandni/blogimg@main/img/2020-12-11-wxpublic.png" width="200"/>
