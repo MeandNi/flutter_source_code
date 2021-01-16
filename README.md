@@ -6,6 +6,8 @@
 
 **购买纸质书：[京东](https://item.jd.com/12757223.html) / [当当](http://product.dangdang.com/29153233.html)**
 
+**电子版已经在异步社区上线：[epubit](https://www.epubit.com/bookDetails?id=UB7254663955be1)**
+
 **图书勘误：[epubit](https://www.epubit.com/bookDetails?id=UB7254663955be1)**
 
 **内容讨论：[issues](https://github.com/MeandNi/flutter_source_code/issues) / [epubit](https://www.epubit.com/bookDetails?id=UB7254663955be1)**
